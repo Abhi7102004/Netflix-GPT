@@ -1,10 +1,11 @@
 import React from 'react'
+import { HomeBackgroundImage } from '../utils/constants'
 
 const Background = () => {
   return (
     <div>
         <img
-        src="https://i.ibb.co/vXqDmnh/background.jpg"
+        src={HomeBackgroundImage}
         alt=""
         className="absolute object-cover w-full h-full"
       />

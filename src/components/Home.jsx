@@ -1,14 +1,16 @@
+import React from "react";
 import Background from "./Background";
 import FaqList from "./FaqList";
 import Features from "./Features";
 import Footer from "./Footer";
 import Header from "./Header";
 import Intro from "./Intro";
-
+import { Link } from "react-router-dom";
+import { GET_STARTED_BUTTON, _3D_MOVIES_IMAGE } from "../utils/constants";
 const Home = () => {
   return (
     <div>
-      <Background/>
+      <Background />
       <div className="relative h-screen w-full bg-black bg-opacity-80">
         <Header />
         <Intro />
@@ -31,7 +33,7 @@ const Home = () => {
             <div className="overflow-hidden p-4 sm:p-0 flex justify-center md:justify-end items-center">
               <img
                 className="object-cover scale-150 sm:scale-100 h-48 sm:h-full md:mr-0 mr-[-20px] "
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/nmhp/games-lg.webp"
+                src={_3D_MOVIES_IMAGE}
                 alt=""
               />
             </div>
@@ -50,28 +52,17 @@ const Home = () => {
             name="email"
             placeholder="Email Address"
           />
-          <button
-            type="submit"
-            className="flex items-center gap-1 px-2 py-[10px] text-white font-semibold text-sm sm:text-md lg:text-2xl md:text-xl rounded-md bg-[#C11119]"
-          >
-            Get Started{" "}
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </span>{" "}
-          </button>
+          <Link to="/login">
+            <button
+              type="submit"
+              className="flex items-center gap-1 px-2 py-[10px] text-white font-semibold text-sm sm:text-md lg:text-2xl md:text-xl rounded-md bg-[#C11119]"
+            >
+              Get Started{" "}
+              <span>
+                {GET_STARTED_BUTTON}
+              </span>{" "}
+            </button>
+          </Link>
         </div>
         <Footer />
       </div>

@@ -9,7 +9,7 @@ const FaqList = () => {
       </h1>
       <div className="flex flex-col gap-3">
         {questions.map((e) => (
-          <QuestionCard question={e} />
+          <QuestionCard key={e.question} question={e} />
         ))}
       </div>
     </div>

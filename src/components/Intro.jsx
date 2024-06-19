@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
-import { ValidateEmail } from "../utils/validate";
 import { Link } from "react-router-dom";
+import { GET_STARTED_BUTTON } from "../utils/constants";
 const Intro = () => {
   return (
     <div className="relative lg:mx-36 md:mx-24 mx-8 h-screen flex items-center justify-center">
@@ -22,25 +21,11 @@ const Intro = () => {
         >
           <Link to="./login">
             <button
-              type="submit"
               className="flex items-center mt-4 gap-1 px-2 py-[10px] text-white font-semibold text-sm sm:text-md  lg:text-2xl md:text-xl rounded-md bg-[#C11119]"
             >
               Get Started{" "}
               <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
+                {GET_STARTED_BUTTON}
               </span>{" "}
             </button>
           </Link>
