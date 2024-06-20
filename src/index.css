@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit (Safari, Chrome, etc.) */
+}
+
+.scrollbar-hide {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}

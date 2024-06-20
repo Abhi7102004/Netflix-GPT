@@ -2,7 +2,7 @@ import { API_MOVIES } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addTrailer } from "../utils/trailerSlice";
-const useMovieTrailer = ({id}) => {
+const useTrendingTrailer = ({id}) => {
   const dispatch = useDispatch();
   const getTrailers = async () => {
     try{
@@ -12,7 +12,7 @@ const useMovieTrailer = ({id}) => {
       );
       const json = await data.json();
       const filterData = json.results.filter((video) => video.type === "Trailer");
-      const trailer = filterData.length ? filterData[0] : json.results[0];
+      const trailer = filterData.length ? filterData[filterData.length-1] : json.results[0];
       dispatch(addTrailer(trailer));
     }
     catch{
@@ -23,4 +23,4 @@ const useMovieTrailer = ({id}) => {
     getTrailers();
   }, [id]);
 };
-export default useMovieTrailer;
+export default useTrendingTrailer;

@@ -1,20 +1,23 @@
-import React from "react";
-import useMovieTrailer from "../hooks/useMovieTrailer";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const VideoBackground = ({ id }) => {
-  useMovieTrailer({ id });
-  const trailerVideo = useSelector((store) => store.movies?.addTrailerVideo);
-  const srcUrl = `https://www.youtube.com/embed/xSeavZfiO0s?si=${trailerVideo?.key}&autoplay=1&mute=1&rel=0`;
+const VideoBackground = () => {
+  const trailer = useSelector(state => state.trailer?.trailer);
+  const [videoUrl, setVideoUrl] = useState('https://www.youtube.com/embed/defaultVideoID?autoplay=1&mute=1&rel=0');
+
+  useEffect(() => {
+    if (trailer?.key) {
+      setVideoUrl(`https://www.youtube.com/embed/${trailer.key}?autoplay=1&mute=1&rel=0`);
+    }
+  }, [trailer?.key]);
 
   return (
-    <div>
+    <div className="-mt-24">
       <iframe
         className="aspect-video w-full"
-        src={srcUrl}
+        src={videoUrl}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        // loop
       ></iframe>
     </div>
   );

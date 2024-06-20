@@ -46,7 +46,7 @@ const Login = () => {
             }).then(() => {
               const {uid,email,displayName}=user;
               dispatch(addUser({uid:uid,email:email,displayName:displayName}));
-              // navigate("/browse");
+              navigate("/browse");
             }).catch((error) => {
               console.error("Profile update error:", error);
             });
@@ -63,7 +63,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email.current.value, password.current.value)
           .then((userCredential) => {
             const user = userCredential.user;
-            // navigate("/browse");
+            navigate("/browse");
           })
           .catch((error) => {
             setErrorMessage("User Not Found, Sign Up First");

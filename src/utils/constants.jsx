@@ -12,6 +12,8 @@ export const _3D_MOVIES_IMAGE =
   "https://assets.nflxext.com/ffe/siteui/acquisition/nmhp/games-lg.webp";
 export const USER_LOGO =
   "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp";
+ 
+export const IMG_CDN="https://image.tmdb.org/t/p/w500"
 
 export const GET_STARTED_BUTTON = (
   <svg

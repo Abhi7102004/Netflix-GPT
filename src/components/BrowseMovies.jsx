@@ -1,0 +1,47 @@
+import React from "react";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import BrowseHeader from "./BrowseHeader";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useUpComingMovies from "../hooks/useUpComingMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useMovieTrailer from "../hooks/useMovieTrailer";
+import Footer from "./Footer";
+import { useSelector } from "react-redux";
+const BrowseMovies = () => {
+  useNowPlayingMovies();
+  usePopularMovies();
+  useUpComingMovies();
+  useTopRatedMovies();
+
+  const movies = useSelector((store) => store.movies);
+  const data = {
+    nowPlaying: movies.nowPlayingMovies,
+    topRated: movies.TopRatedMovies,
+    popular: movies.PopularMovies,
+    upComing: movies.UpComingMovies,
+  };
+  let mainVideo = null;
+
+  if (data.nowPlaying && data.nowPlaying.length > 0) {
+    mainVideo = data.nowPlaying.filter(video => video.overview !== "");
+  }
+
+  const videoDetails = mainVideo && mainVideo.length > 0 ? mainVideo[0] : (data.nowPlaying && data.nowPlaying[0]);
+  const id = videoDetails ? videoDetails.id : 236033;
+
+  useMovieTrailer({id});
+  return (
+    <div className="bg-black">
+      <div className="text-white">
+        <BrowseHeader />
+        <MainContainer data={data.nowPlaying} />
+        <SecondaryContainer data={data} />
+        <Footer />
+      </div>
+    </div>
+  );
+};
+
+export default BrowseMovies;

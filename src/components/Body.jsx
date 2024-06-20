@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Login";
-import Browse from "./Browse";
 import Home from "./Home";
 import { auth } from "../utils/authentication";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+import HeaderRoute from "./HeaderRoute"; 
 
 const Body = () => {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(
       (user) => {
@@ -18,7 +19,7 @@ const Body = () => {
             addUser({ uid: uid, email: email, displayName: displayName })
           );
         } else {
-          dispatch(removeUser())
+          dispatch(removeUser());
         }
       },
       (error) => {
@@ -36,7 +37,7 @@ const Body = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/browse" element={<Browse />} />
+        <Route path="/browse/*" element={<HeaderRoute />} /> 
       </Routes>
     </Router>
   );

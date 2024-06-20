@@ -1,0 +1,25 @@
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { API_MOVIES } from "../utils/constants";
+import { addUpComingMovies } from "../utils/movieSlice";
+const useUpComingMovies = () => {
+  const dispatch = useDispatch();
+  const getUpComingMovies = async () => {
+    try{
+      const data = await fetch(
+        "https://api.themoviedb.org/3/movie/upcoming?page=1",
+        API_MOVIES
+      );
+      const json = await data.json();
+      dispatch(addUpComingMovies(json.results));
+    }
+    catch{
+      console.log("Error using Movie API")
+    }
+  };
+  useEffect(() => {
+    getUpComingMovies();
+  }, []);
+};
+
+export default useUpComingMovies;
