@@ -2,8 +2,10 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { API_MOVIES } from "../utils/constants";
 import { addOnTheAir } from "../utils/tvShowsSlice";
+import { useSelector } from "react-redux";
 const useOnTheAirTvShow = () => {
   const dispatch = useDispatch();
+  const AlreadyHaveOnTheAir=useSelector(store=>store.tvshows?.onTheAir);
   const getOnTheAirTvShow = async () => {
     try{
       const data = await fetch(
@@ -18,7 +20,7 @@ const useOnTheAirTvShow = () => {
     }
   };
   useEffect(() => {
-    getOnTheAirTvShow();
+    !AlreadyHaveOnTheAir && getOnTheAirTvShow();
   }, []);
 };
 

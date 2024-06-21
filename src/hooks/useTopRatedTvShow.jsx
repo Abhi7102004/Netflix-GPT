@@ -2,8 +2,10 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { API_MOVIES } from "../utils/constants";
 import { addTopRatedTvShow } from "../utils/tvShowsSlice";
+import { useSelector } from "react-redux";
 const useTopRatedTvShow = () => {
   const dispatch = useDispatch();
+  const AlreadyHaveTopRated=useSelector(store=>store.tvshows?.topRated);
   const getTopRatedTvShow = async () => {
     try{
       const data = await fetch(
@@ -18,7 +20,7 @@ const useTopRatedTvShow = () => {
     }
   };
   useEffect(() => {
-    getTopRatedTvShow();
+    !AlreadyHaveTopRated && getTopRatedTvShow();
   }, []);
 };
 

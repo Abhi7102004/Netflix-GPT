@@ -2,8 +2,10 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { API_MOVIES } from "../utils/constants";
 import { addTrendingAll } from "../utils/trendingSlice";
+import { useSelector } from "react-redux";
 const useTrendingAll = () => {
   const dispatch = useDispatch();
+  const AlreadyHaveTrendingAll=useSelector(store=>store.trending?.trendingAll);
   const getTrendingAll = async () => {
     try {
       const data = await fetch(
@@ -17,7 +19,7 @@ const useTrendingAll = () => {
     }
   };
   useEffect(() => {
-    getTrendingAll();
+    !AlreadyHaveTrendingAll && getTrendingAll();
   }, []);
 };
 
