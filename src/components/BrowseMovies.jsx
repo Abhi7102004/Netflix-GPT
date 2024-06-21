@@ -25,22 +25,30 @@ const BrowseMovies = () => {
   let mainVideo = null;
 
   if (data.nowPlaying && data.nowPlaying.length > 0) {
-    mainVideo = data.nowPlaying.filter(video => video.overview !== "");
+    mainVideo = data.nowPlaying.filter((video) => video.overview !== "");
   }
 
-  const videoDetails = mainVideo && mainVideo.length > 0 ? mainVideo[0] : (data.nowPlaying && data.nowPlaying[0]);
+  const videoDetails =
+    mainVideo && mainVideo.length > 0
+      ? mainVideo[0]
+      : data.nowPlaying && data.nowPlaying[0];
   const id = videoDetails ? videoDetails.id : 236033;
 
-  useMovieTrailer({id});
+  useMovieTrailer({ id });
+  if(!movies) return <></>
   return (
-    <div className="bg-black">
-      <div className="text-white">
-        <BrowseHeader />
-        <MainContainer data={data.nowPlaying} />
-        <SecondaryContainer data={data} />
-        <Footer />
+    movies && (
+      <div className="bg-black">
+        <div className="text-white">
+          <div className="mt-24 absolute z-10 w-full">
+            <BrowseHeader />
+          </div>
+          <MainContainer data={data.nowPlaying} />
+          <SecondaryContainer data={data} />
+          <Footer />
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

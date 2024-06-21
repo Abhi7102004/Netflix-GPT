@@ -15,7 +15,7 @@ const BrowseHome = () => {
   useTrendingMovies();
   useTrendingPeople();
   useTrendingTV();
-  
+
   const trending = useSelector((store) => store.trending);
 
   const data = {
@@ -28,22 +28,30 @@ const BrowseHome = () => {
   let mainVideo = null;
 
   if (data.trendingAll && data.trendingAll.length > 0) {
-    mainVideo = data.trendingAll.filter(video => video.overview !== "");
+    mainVideo = data.trendingAll.filter((video) => video.overview !== "");
   }
 
-  const videoDetails = mainVideo && mainVideo.length > 0 ? mainVideo[0] : (data.trendingAll && data.trendingAll[0]);
+  const videoDetails =
+    mainVideo && mainVideo.length > 0
+      ? mainVideo[0]
+      : data.trendingAll && data.trendingAll[0];
   const id = videoDetails ? videoDetails.id : 1022789;
 
   useTrendingTrailer({ id });
+  if(!trending) return <></>
   return (
-    <div className="bg-black">
-      <div className="text-white">
-        <BrowseHeader />
-        <MainContainer data={data.trendingAll} />
-        <SecondaryContainerHome data={data} />
-        <Footer />
+    trending && (
+      <div className="bg-black">
+        <div className="text-white">
+         <div className="mt-24 absolute z-10 w-full">
+          <BrowseHeader/>
+         </div>
+          <MainContainer data={data.trendingAll} />
+          <SecondaryContainerHome data={data} />
+          <Footer />
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

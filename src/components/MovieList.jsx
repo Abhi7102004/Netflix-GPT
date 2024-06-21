@@ -3,6 +3,9 @@ import MovieCard from "./MovieCard";
 import { IMG_CDN } from "../utils/constants";
 
 const MovieList = ({ title, movies }) => {
+  if (!movies || movies.length === 0) {
+    return null;
+  }
   return (
     <div className="py-4">
       <h1 className="text-2xl font-mukta py-3">{title}</h1>
@@ -13,7 +16,7 @@ const MovieList = ({ title, movies }) => {
               path={
                 movie.poster_path
                   ? IMG_CDN + movie.poster_path
-                  : IMG_CDN + movie.profile_path
+                  : null
               }
               key={movie.id}
               name={movie.media_type === "person" ? movie.name : null}
