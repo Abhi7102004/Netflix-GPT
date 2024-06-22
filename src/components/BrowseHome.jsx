@@ -39,11 +39,12 @@ const BrowseHome = () => {
 
   useTrendingTrailer({ id });
   if(!trending) return <></>
+  const trailer=useSelector(store=>store.trailer?.trailer);
   return (
     trending && (
       <div className="bg-black">
         <div className="text-white">
-         <div className="mt-24 absolute z-10 w-full">
+         <div className={`${trailer?`mt-24`:``} absolute z-10 w-full`}>
           <BrowseHeader/>
          </div>
           <MainContainer data={data.trendingAll} />

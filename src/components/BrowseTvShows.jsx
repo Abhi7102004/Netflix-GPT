@@ -39,13 +39,14 @@ const BrowseTvShows = () => {
 
   useTvShowTrailer(id);
   if(!shows) return <></>
+  const trailer=useSelector(store=>store.trailer?.trailer);
   return (
     shows && (
       <div className="bg-black">
         <div className="text-white">
-          <div className="mt-24 absolute z-10 w-full">
-            <BrowseHeader />
-          </div>
+        <div className={`${trailer?`mt-24`:``} absolute z-10 w-full`}>
+          <BrowseHeader/>
+         </div>
           <MainContainer data={data.nowPlaying} />
           <SecondaryContainer data={data} />
           <Footer />
