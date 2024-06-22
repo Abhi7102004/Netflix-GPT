@@ -44,7 +44,7 @@ const BrowseTvShows = () => {
     shows && (
       <div className="bg-black">
         <div className="text-white">
-        <div className={`${trailer?`mt-24`:``} absolute z-10 w-full`}>
+        <div className="lg:mt-24 lg:absolute lg:z-10 w-full">
           <BrowseHeader/>
          </div>
           <MainContainer data={data.nowPlaying} />

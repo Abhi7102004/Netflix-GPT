@@ -3,11 +3,11 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-    <p className="text-white lg:mx-36 md:mx-24 mx-4 mt-8">
+    <p className="text-white lg:px-36 md:px-24 px-6 mt-8">
           Questions? Call{" "}
           <span className="underline text-white">+91-8840-63X-XXX</span>{" "}
     </p>
-    <div className="lg:mx-36 md:mx-28 mx-4 pt-10 pb-24">
+    <div className="lg:mx-36 md:mx-28 mx-6 pt-10 pb-24">
       <ul className="text-white gap-y-3 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
         <li><a className="underline" href="https://help.netflix.com/en/node/412">FAQ</a></li>
         <li><a className="underline" href="https://help.netflix.com/en">Help Centre</a></li>

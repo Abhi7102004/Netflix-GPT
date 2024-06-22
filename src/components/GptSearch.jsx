@@ -4,12 +4,13 @@ import BrowseHeader from "./BrowseHeader";
 import GptSearchBar from "./GptSearchBar";
 import GptMovieSuggestion from "./GptMovieSuggestion";
 import { BG_SearchBar } from "../utils/constants";
+import Footer from "./Footer";
 
 const GptSearch = () => {
   return (
     <div className="relative text-white">
       <img
-        className="fixed  w-full h-full object-cover z-0"
+        className="fixed w-full h-full z-0"
         src={BG_SearchBar}
         alt=""
       />
@@ -17,6 +18,7 @@ const GptSearch = () => {
         <BrowseHeader />
         <GptSearchBar />
         <GptMovieSuggestion />
+        <Footer/>
       </div>
     </div>
   );

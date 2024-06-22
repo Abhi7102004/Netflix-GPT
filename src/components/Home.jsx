@@ -16,7 +16,7 @@ const Home = () => {
         <Intro />
       </div>
       <div className="bg-[#0a0a0a]">
-        <div className="lg:mx-36 md:mx-24 mx-4 pt-16 rounded-md">
+        <div className="lg:mx-36 md:mx-24 mx-6 pt-16 rounded-md">
           <p className="font-mukta text-3xl text-white mb-3">
             Get More From Your Membership
           </p>
@@ -42,10 +42,10 @@ const Home = () => {
 
         <Features />
         <FaqList />
-        <p className="lg:mx-36 md:mx-24 mx-4 pt-16 text-white">
+        <p className="lg:mx-36 md:mx-24 mx-6 pt-16 text-white">
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        <div className="lg:mx-36 md:mx-24 mx-4 w-auto mt-8 flex items-center gap-2 flex-col sm:flex-row">
+        <div className="lg:mx-36 md:mx-24 mx-6 w-auto mt-8 flex items-center gap-2 flex-col sm:flex-row">
           <input
             className="rounded-md border-white border-[2px] lg:w-8/12 xl:w-10/12 w-6/12 bg-black opacity-80 pl-4 py-3"
             type="email"

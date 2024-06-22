@@ -85,7 +85,7 @@ const Login = () => {
     <div className="bg-[#0a0a0a]">
       <div className="relative min-h-screen">
         <Background />
-        <div className="absolute lg:mx-36 md:mx-24 mx-4 top-0 left-0 p-4 items-center justify-between z-10">
+        <div className="absolute lg:mx-36 md:mx-24 mx-6 top-0 left-0 p-4 items-center justify-between z-10">
           <img
             src={LOGO}
             alt="Logo"

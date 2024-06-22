@@ -47,7 +47,7 @@ const GptSearchBar = () => {
   return (
     <form
       onClick={(e) => e.preventDefault()}
-      className="relative mt-12 flex items-center w-full max-w-md mx-auto bg-gray-900 bg-opacity-50 rounded-lg"
+      className="relative mt-12 flex items-center sm:scale-100 scale-90 w-full max-w-md mx-auto bg-gray-900 bg-opacity-50 rounded-lg"
     >
       <input
         ref={searchText}
