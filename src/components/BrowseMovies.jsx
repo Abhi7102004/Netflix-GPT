@@ -8,13 +8,15 @@ import useUpComingMovies from "../hooks/useUpComingMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useMovieTrailer from "../hooks/useMovieTrailer";
 import Footer from "./Footer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setPath } from "../utils/pathSlice";
 const BrowseMovies = () => {
   useNowPlayingMovies();
   usePopularMovies();
   useUpComingMovies();
   useTopRatedMovies();
-
+  const dispatch=useDispatch();
+  dispatch(setPath('movie'));
   const movies = useSelector((store) => store.movies);
   const data = {
     nowPlaying: movies.nowPlayingMovies,

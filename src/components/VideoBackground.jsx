@@ -7,7 +7,7 @@ const VideoBackground = () => {
 
   useEffect(() => {
     if (trailer?.key) {
-      setVideoUrl(`https://www.youtube.com/embed/${trailer.key}?autoplay=1&mute=1&rel=0`);
+      setVideoUrl(`https://www.youtube.com/embed/${trailer?.key}?autoplay=1&mute=1&rel=0`);
     }
   }, [trailer?.key]);
 

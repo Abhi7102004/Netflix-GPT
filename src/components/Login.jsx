@@ -7,6 +7,7 @@ import { auth } from "../utils/authentication";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { LOGO } from "../utils/constants";
+import {addUser} from '../utils/userSlice'
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);

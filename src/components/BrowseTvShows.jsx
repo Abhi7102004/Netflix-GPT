@@ -5,17 +5,19 @@ import SecondaryContainer from "./SecondaryContainer";
 import Footer from "./Footer";
 import useAiringTodayTvShow from "../hooks/useAiringTodayTvShow";
 import useOnTheAirTvShow from "../hooks/useOnTheAirTvShow";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useTvShowTrailer from "../hooks/useTvShowTrailer";
 import usePopularTvShow from "../hooks/usePopularTvShow";
 import useTopRatedTvShow from "../hooks/useTopRatedTvShow";
+import { setPath } from "../utils/pathSlice";
 
 const BrowseTvShows = () => {
   useAiringTodayTvShow();
   useOnTheAirTvShow();
   usePopularTvShow();
   useTopRatedTvShow();
-
+  const dispatch=useDispatch();
+  dispatch(setPath('tv'));
   const shows = useSelector((store) => store.tvshows);
 
   const data = {
@@ -48,7 +50,7 @@ const BrowseTvShows = () => {
           <BrowseHeader/>
          </div>
           <MainContainer data={data.nowPlaying} />
-          <SecondaryContainer data={data} />
+          <SecondaryContainer data={data}  />
           <Footer />
         </div>
       </div>

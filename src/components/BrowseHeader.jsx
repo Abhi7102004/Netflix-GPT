@@ -111,7 +111,7 @@ const BrowseHeader = () => {
         {showDropDown &&
           [
             { to: "/browse", label: "Home" },
-            { to: "/browse/tvshows", label: "TV Shows" },
+            { to: "/browse/tvshows", label: "TV Shows", },
             { to: "/browse/movies", label: "Movies" },
             { to: "/browse/series", label: "Series" },
             { to: "/browse/mylist", label: "MyList" },
